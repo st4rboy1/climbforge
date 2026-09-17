@@ -114,9 +114,9 @@ function Index() {
           <p className="section-kicker">03 / BEFORE YOU ORDER</p>
           <h2>Clear boundaries protect every climb.</h2>
           <p>
-            We operate on the SEA server only. Never share your Riot password
-            in a public message. Confirm the handoff and payment details with
-            us first, and ask about the current queue and estimated timing.
+            We operate on the SEA server only. Confirm the handoff and payment
+            details with us first, and ask about the current queue and
+            estimated timing.
           </p>
         </div>
         <div className="trust-list">
@@ -136,7 +136,7 @@ function Index() {
             quote.
           </p>
         </div>
-        <form className="inquiry-form" action="mailto:boostingservices123@gmail.com" method="post" encType="text/plain">
+        <form className="inquiry-form" onSubmit={(event) => event.preventDefault()}>
           <label>
             Name
             <input name="name" type="text" required placeholder="Your name" />
@@ -157,7 +157,7 @@ function Index() {
             What do you need?
             <textarea name="message" rows={4} placeholder="Promotion, per-rank climb, duo boosting, or another question" />
           </label>
-          <button className="form-cta" type="submit">Send inquiry</button>
+          <button className="form-cta" type="button" onClick={() => window.open("https://www.facebook.com/boostingservices123", "_blank", "noopener,noreferrer")}>Continue on Facebook</button>
         </form>
       </section>
 
