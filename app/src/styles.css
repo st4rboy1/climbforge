@@ -3,10 +3,329 @@
  * q-button-*) always win over global element resets. */
 @layer reset, theme, base, components, utilities;
 
+:root {
+  --rank-bg: #071326;
+  --rank-panel: #0d1d36;
+  --rank-panel-light: #142746;
+  --rank-ink: #f4f7ff;
+  --rank-muted: #b4c0d8;
+  --rank-gold: #f1c75b;
+  --rank-blue: #326bff;
+  --rank-red: #ff4d62;
+  --rank-line: rgba(244, 247, 255, 0.14);
+  --rank-display: "Space Grotesk", "Arial Narrow", sans-serif;
+  --rank-body: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.rankforge-site {
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--rank-bg);
+  color: var(--rank-ink);
+  font-family: var(--rank-body);
+}
+
+.site-nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem clamp(1.25rem, 4vw, 4rem);
+  background: linear-gradient(180deg, rgba(7, 19, 38, .92), transparent);
+}
+
+.brand-mark, .site-nav nav, .site-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-mark, .site-nav a, .site-footer a {
+  color: var(--rank-ink);
+  text-decoration: none;
+}
+
+.brand-mark {
+  font: 700 1rem var(--rank-display);
+  letter-spacing: -.03em;
+}
+
+.brand-mark__crest {
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid var(--rank-gold);
+  color: var(--rank-gold);
+  font-size: .72rem;
+  letter-spacing: .08em;
+}
+
+.site-nav nav {
+  margin-left: auto;
+}
+
+.site-nav nav a, .nav-cta, .site-footer a {
+  color: var(--rank-muted);
+  font-size: .8rem;
+}
+
+.site-nav nav a:hover, .site-footer a:hover {
+  color: var(--rank-gold);
+}
+
+.nav-cta {
+  padding: .7rem 1rem;
+  border: 1px solid var(--rank-gold);
+  color: var(--rank-gold);
+}
+
+.journey-shell {
+  background: var(--rank-bg);
+}
+
+.price-section, .process-section, .trust-section, .contact-section {
+  position: relative;
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 7vw, 7rem);
+}
+
+.price-section, .contact-section {
+  background: var(--rank-panel);
+}
+
+.process-section {
+  background: var(--rank-bg);
+}
+
+.trust-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 8vw, 9rem);
+  align-items: end;
+  background: var(--rank-blue);
+}
+
+.section-intro {
+  max-width: 42rem;
+}
+
+.section-kicker {
+  margin: 0 0 1.25rem;
+  color: var(--rank-gold);
+  font-size: .73rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.section-intro h2, .trust-copy h2 {
+  max-width: 12ch;
+  margin: 0;
+  font: 600 clamp(2.4rem, 6vw, 6rem)/.94 var(--rank-display);
+  letter-spacing: -.07em;
+}
+
+.section-intro > p:not(.section-kicker), .trust-copy > p:not(.section-kicker) {
+  max-width: 42ch;
+  margin: 1.5rem 0 0;
+  color: var(--rank-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.price-panel {
+  border: 1px solid var(--rank-line);
+  background: var(--rank-bg);
+}
+
+.price-panel--accent {
+  border-color: rgba(241, 199, 91, .42);
+}
+
+.panel-heading, .price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panel-heading {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--rank-line);
+  color: var(--rank-gold);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.price-row {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--rank-line);
+  color: var(--rank-muted);
+}
+
+.price-row:last-child {
+  border-bottom: 0;
+}
+
+.price-row strong {
+  color: var(--rank-ink);
+  font-family: var(--rank-display);
+  white-space: nowrap;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--rank-line);
+}
+
+.process-step {
+  min-height: 15rem;
+  padding: 1.5rem;
+  background: var(--rank-panel);
+}
+
+.process-step > span {
+  color: var(--rank-red);
+  font: 700 1.4rem var(--rank-display);
+}
+
+.process-step h3 {
+  margin: 4rem 0 1rem;
+  font: 600 1.25rem var(--rank-display);
+}
+
+.process-step p {
+  margin: 0;
+  color: var(--rank-muted);
+  line-height: 1.55;
+}
+
+.trust-copy > p:not(.section-kicker) {
+  color: rgba(244, 247, 255, .8);
+}
+
+.trust-list {
+  display: grid;
+  gap: .8rem;
+}
+
+.trust-list span {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(244, 247, 255, .3);
+  font: 600 1.1rem var(--rank-display);
+}
+
+.inquiry-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 52rem;
+  margin-top: 3rem;
+}
+
+.inquiry-form label {
+  display: grid;
+  gap: .55rem;
+  color: var(--rank-muted);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.inquiry-form input, .inquiry-form textarea {
+  width: 100%;
+  border: 1px solid var(--rank-line);
+  border-radius: 0;
+  padding: .95rem 1rem;
+  background: var(--rank-bg);
+  color: var(--rank-ink);
+  font: 400 1rem var(--rank-body);
+}
+
+.inquiry-form input:focus, .inquiry-form textarea:focus {
+  outline: 2px solid var(--rank-gold);
+  outline-offset: 2px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-cta {
+  justify-self: start;
+  border: 0;
+  padding: 1rem 1.5rem;
+  background: var(--rank-gold);
+  color: var(--rank-bg);
+  cursor: pointer;
+  font: 700 .8rem var(--rank-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.form-cta:hover {
+  background: var(--rank-ink);
+}
+
+.site-footer {
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.25rem, 7vw, 7rem);
+  border-top: 1px solid var(--rank-line);
+  color: var(--rank-muted);
+  font-size: .75rem;
+}
+
+@media (max-width: 760px) {
+  .site-nav nav {
+    display: none;
+  }
+
+  .site-nav {
+    padding: .8rem 1rem;
+  }
+
+  .price-grid, .process-grid, .trust-section, .inquiry-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @import "tailwindcss" source(none);
 @source "../src";
 @source "../packages/app-landing/src";
 @source "../packages/quanta/src";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 @import "@higgsfield/quanta/tailwind.css";
 
 /* New in-app Quanta-style components (moved out of the quanta package). Their

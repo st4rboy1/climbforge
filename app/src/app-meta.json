@@ -1,8 +1,8 @@
 {
-  "og_title": null,
-  "og_description": null,
-  "og_image_url": null,
-  "favicon_url": null,
+  "og_title": "SEA Rankforge",
+  "og_description": "SEA-only League of Legends boosting with clear PHP pricing, progress updates, and a simple inquiry flow.",
+  "og_image_url": "https://sea-rankforge.higgsfield.app/assets/world/scene-01-poster.png",
+  "favicon_url": "https://sea-rankforge.higgsfield.app/assets/world/scene-01-poster.png",
   "og_video_url": null,
-  "marketplace_cover_url": null
+  "marketplace_cover_url": "https://sea-rankforge.higgsfield.app/assets/world/scene-01-poster.png"
 }

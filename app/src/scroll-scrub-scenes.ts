@@ -19,23 +19,23 @@ import type {
 
 /** Brand tokens for the journey layer. Set these from the design brief. */
 export const scrollScrubTheme: ScrollScrubTheme = {
-  accent: "<accent hex>",
-  background: "<background hex>",
-  ink: "<ink hex>",
-  muted: "<muted ink hex>",
+  accent: "#F1C75B",
+  background: "#071326",
+  ink: "#F4F7FF",
+  muted: "#B4C0D8",
 };
 
 export const scrollScrubScenes: ScrollScrubScene[] = [
   {
-    body: "<one sentence that earns the next scroll>",
+    body: "SEA-only League of Legends boosting with visible prices, a clear handoff, and no mystery around what happens next.",
     clip: "/assets/world/scene-01.mp4",
     id: "scene-01",
-    kicker: "<kicker>",
-    label: "<nav label>",
+    kicker: "SEA SERVER / RANK BOARD",
+    label: "Start here",
     mobileClip: "/assets/world/scene-01-mobile.mp4",
     mobilePoster: "/assets/world/scene-01-mobile-poster.png",
     poster: "/assets/world/scene-01-poster.png",
-    tags: ["<proof tag>"],
-    title: "<scene headline>",
+    tags: ["Fixed PHP rates", "GCash accepted", "Manual confirmation"],
+    title: "Clear ranks.\nClear prices.",
   },
 ];
