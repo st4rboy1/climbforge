@@ -132,6 +132,30 @@ const testimonials: {
   },
 ];
 
+/* Booster credentials — real rank screenshots only, never stock art.
+ * Screenshots live in public/about/ and are referenced by URL path. */
+const aboutShots: {
+  caption: string;
+  detail: string;
+  image: string;
+}[] = [
+  {
+    caption: "Challenger promotion — Ranked Solo/Duo",
+    detail: "Promotion screen",
+    image: "/about/challenger-promo-new.jpg",
+  },
+  {
+    caption: "Challenger profile — Ranked Solo/Duo",
+    detail: "Profile screen",
+    image: "/about/challenger-profile.jpg",
+  },
+  {
+    caption: "Challenger promotion — Ranked Solo/Duo",
+    detail: "Promotion screen",
+    image: "/about/challenger-promo-old.jpg",
+  },
+];
+
 const faqs = [  {
     answer:
       "Yes. We play every order on the SEA server for League of Legends. We turn down other regions and other games.",
@@ -247,7 +271,7 @@ function ResultImage({ src, alt }: { src: string; alt: string }) {
 
 function Index() {
   useReveal();
-  const activeSection = useScrollSpy(["services", "process", "prices", "reviews", "results", "contact"]);
+  const activeSection = useScrollSpy(["services", "process", "prices", "reviews", "results", "about", "contact"]);
   const year = new Date().getFullYear();
   const [currentRank, setCurrentRank] = useState("Silver 1");
   const [targetRank, setTargetRank] = useState("Gold 4");
@@ -359,6 +383,13 @@ function Index() {
             aria-current={activeSection === "results" ? "location" : undefined}
           >
             Results
+          </a>
+          <a
+            href="#about"
+            className={activeSection === "about" ? "is-active" : undefined}
+            aria-current={activeSection === "about" ? "location" : undefined}
+          >
+            About
           </a>
           <a
             href="#contact"
@@ -781,9 +812,45 @@ function Index() {
         )}
       </section>
 
+      <section id="about" className="results-section" aria-label="About the booster">
+        <div className="section-intro reveal">
+          <p className="section-kicker">06 / ABOUT THE BOOSTER</p>
+          <h2>Challenger hands on your account.</h2>
+          <p>
+            SEA Climbforge is run by a Challenger player in both Ranked
+            Solo/Duo and Flex — 1k LP peak. The climbs above are played at
+            that level.
+          </p>
+        </div>
+        <div className="results-grid">
+          {aboutShots.map((shot, i) => (
+            <figure
+              className="result-card reveal"
+              key={shot.image}
+              style={{ "--reveal-delay": `${i * 60}ms` } as CSSProperties}
+            >
+              <ResultImage
+                src={shot.image}
+                alt={`Rank proof: ${shot.caption}`}
+              />
+              <figcaption>
+                <strong>{shot.caption}</strong>
+                <span>{shot.detail}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="services-note reveal">
+          Questions about who plays your order?{" "}
+          <a className="service-link" href="#contact">
+            <span aria-hidden="true">→</span> Ask before you pay
+          </a>
+        </p>
+      </section>
+
       <section id="faq" className="faq-section" aria-label="Frequently asked questions">
         <div className="section-intro reveal">
-          <p className="section-kicker">06 / QUESTIONS</p>
+          <p className="section-kicker">07 / QUESTIONS</p>
           <h2>Before you message.</h2>
         </div>
         <div className="faq-list">
@@ -807,7 +874,7 @@ function Index() {
 
       <section id="contact" className="contact-section">
         <div className="section-intro reveal">
-          <p className="section-kicker">07 / START AN INQUIRY</p>
+          <p className="section-kicker">08 / START AN INQUIRY</p>
           <h2>Tell us where to start.</h2>
           <p>
             Share the basics and continue on Facebook, Discord, or TikTok.
@@ -1077,6 +1144,7 @@ function Index() {
           <a href="#process">Process</a>
           <a href="#prices">Prices</a>
           <a href="#results">Results</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
           <a
             href={CONTACT.facebookUrl}
